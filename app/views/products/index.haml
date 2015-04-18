@@ -1,0 +1,5 @@
+%section.products
+  = render @products
+
+- if(logged_in? && current_user.id==2)
+  = link_to "Add Item", new_product_path

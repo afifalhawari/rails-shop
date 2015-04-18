@@ -1,0 +1,9 @@
+- if session[:items].present?
+  .cart
+    %ul
+      - @cart_items.each do |cart|
+        %li #{cart.name} x #{session[:items].count(cart.id)} &mdash; #{number_to_currency cart.price} #{link_to 'delete', '#', cart_id: "#{cart.id}", class: 'delete_cart_item'}
+      %li
+        %strong Total #{number_to_currency @cart_total}
+    .float_right
+      = link_to "Pay", checkouts_path

@@ -1,0 +1,9 @@
+%section.product
+  = link_to @product.name, @product
+  %br
+  = number_to_currency @product.price
+
+  %p
+    = @product.description
+
+  = button_to "Buy", add_item_checkouts_path(id: @product.id)

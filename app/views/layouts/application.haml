@@ -1,0 +1,67 @@
+!!!
+%html
+  %head
+    %title Shop
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+    -if logged_in?
+      #login
+        = current_user.email
+        %br
+        = link_to 'logout', user_session_path(current_user.id), method: :delete
+    -else
+      #login
+        = link_to 'login', new_user_session_path
+  %body
+    %header
+      %h1 
+        =link_to 'Our Shop', root_path
+    .cart_container
+      = render 'checkouts/cart'
+
+    - flash.each do |key, msg|
+      %p{class: "flash-#{key}"}= msg
+
+    = yield
+
+:scss
+  html {
+    background: #f5f5f5;
+  }
+  body {
+    margin: 1em auto;
+    width: 80%;
+    background: white;
+    padding: 2em 1em;
+    padding-bottom : 15em;
+  }
+  section.products {
+    article.product {
+      width: 200px;
+      text-align: center;
+      display: inline-block;
+      vertical-align: top;
+      padding: 0.5em;
+      margin-bottom: 1em;
+      border: 1px solid #ccc;
+      a {
+        display: block;
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+  #login {
+    float: right;
+  }
+  .float_right{
+    float: right;
+  }
+  .flash-notice {
+    color: green;
+  }
+  .cart {
+    float: right;
+    background: #def;
+    padding: 1em;
+  }

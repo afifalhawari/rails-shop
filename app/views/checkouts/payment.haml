@@ -1,0 +1,22 @@
+= render 'shared/veritrans_include'
+%br
+%h2 Order ID = #{@order_id}
+%h2 Total = #{number_to_currency @total}
+%br
+
+= form_tag('/checkouts/charge_vt_direct', id: 'card_form') do
+  -#%form#card_form{:action => '/checkouts/charge_vt_direct', :method => "post"}
+  %input#card_token{:name => "token_id", :type => "hidden"}/
+  %input#gross_amount{:name => "gross_amount", :type => "hidden", :value => "#{@total}"}/
+  %input#order_id{:name => "order_id",:type => "hidden", :value => "#{@order_id}"}/
+  %p
+    %label{:for => "card_number"} Card number
+    %input#card_number{:style => "width: 150px", :type => "text", :value => "4811 1111 1111 1114"}/
+  %p
+    %label{:for => "card_cvc"} Security Code
+    %input#card_cvc{:placeholder => "cvc", :style => "width: 30px", :type => "text", :value => "123"}/
+  %p
+    %label{:for => "card_exp"} Expiration date
+    %input#card_exp{:placeholder => "MM / YY", :type => "text", :value => "01 / 20"}/
+  %input#submit_btn{:type => "submit"}/
+%iframe#3d-secure-iframe{:style => "display: none; width: 500px; height: 600px"}

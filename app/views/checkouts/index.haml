@@ -1,0 +1,8 @@
+%ul
+  - for product in @products
+    %li #{product.name} x #{session[:items].count(product.id)} &mdash; #{number_to_currency product.price}
+  %li
+    %strong Total #{number_to_currency @total}
+
+= button_to "Pay via Vt-Web", pay_vtweb_checkouts_path
+= button_to "Pay via Vt-Direct", pay_vtdirect_checkouts_path

@@ -1,0 +1,25 @@
+development:
+  client_key: "VT-client-HoMqBDvt0urmfKX4"
+  server_key: "VT-server-xMyaQnLnFq3gqslMQld_5OnU"
+  api_host: https://api.stg.veritrans.co.id
+
+# development:
+#   # Register in sandbox veritrans and get your keys here:
+#   # https://my.sandbox.veritrans.co.id/settings/config_info
+#   client_key: "VT-client-yyGDhxi9gOwif-Ip"
+#   server_key: "VT-server-W1QtkBMhYXRLMPpo3OsJi8Ya"
+#   api_host: https://api.sandbox.veritrans.co.id
+
+test:
+  # Register in sandbox veritrans and get your keys here:
+  # https://my.sandbox.veritrans.co.id/settings/config_info
+  client_key: "VT-client-yyGDhxi9gOwif-Ip"
+  server_key: "VT-server-W1QtkBMhYXRLMPpo3OsJi8Ya"
+  api_host: https://api.sandbox.veritrans.co.id
+
+production:
+  # Register and get your keys here:
+  # https://my.veritrans.co.id/settings/config_info
+  client_key: ""
+  server_key: ""
+  api_host: https://api.veritrans.co.id
